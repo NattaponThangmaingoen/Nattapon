@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot name="robot_ros" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link name="robot_foot_step"/>
+    <joint name="robot_foot" type="fixed">
+        <parent link="robot_foot_step"/>
+        <child link="base"/>
+        <origin rpy="0 0 0" xyz="0 0 0.021"/>
+    </joint>    
+    <link name="base">
+        <inertial>
+            <mass value="0.5"/>
+            <origin xyz="0 0 0" rpy=" 0 0 0"/>
+            <inertia
+                ixx="0" ixy="0" ixz="0"
+                iyy="0" iyz="0"
+                izz="0"
+            />
+        </inertial>
+
+        <collision name='collision'>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/frame.STL"/>
+            </geometry>
+        </collision>
+
+        <visual name='chassis_visual'>
+            <origin xyz="0 0 0" rpy=" 0 0 0"/>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/frame.STL"/>
+            </geometry>
+             <material name="red"/>
+        </visual>
+
+  </link>
+</robot>

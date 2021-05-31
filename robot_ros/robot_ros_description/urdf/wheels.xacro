@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot name="robot_ros" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <joint name="wheels_l" type="continuous">
+        <parent link="base"/>
+        <child link="wheels_left"/>
+        <origin rpy="0 0 0" xyz="0 0.055 -0.005"/>
+    </joint>    
+    <link name="wheels_left">
+        <inertial>
+            <mass value="0.5"/>
+            <origin xyz="0 0 0" rpy=" 0 0 0.01"/>
+            <inertia
+                ixx="0" ixy="0" ixz="0"
+                iyy="0.01" iyz="0"
+                izz="0"
+            />
+        </inertial>
+
+        <collision name='collision'>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/wheels.STL"/>
+            </geometry>
+        </collision>
+
+        <visual name='chassis_visual'>
+            <origin xyz="0 0 0" rpy=" 0 0 0"/>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/wheels.STL"/>
+            </geometry>
+             <material name="black"/>
+        </visual>
+
+  </link>
+  <joint name="wheels_r" type="continuous">
+        <parent link="base"/>
+        <child link="wheels_right"/>
+        <origin rpy="0 0 0" xyz="0 -0.055 -0.005"/>
+    </joint>    
+    <link name="wheels_right">
+        <inertial>
+            <mass value="0.5"/>
+            <origin xyz="0 0 0" rpy=" 0 0 0.01"/>
+            <inertia
+                ixx="0" ixy="0" ixz="0"
+                iyy="0.01" iyz="0"
+                izz="0"
+            />
+        </inertial>
+
+        <collision name='collision'>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/wheels.STL"/>
+            </geometry>
+        </collision>
+
+        <visual name='chassis_visual'>
+            <origin xyz="0 0 0" rpy=" 0 0 0"/>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/wheels.STL"/>
+            </geometry>
+             <material name="black"/>
+        </visual>
+
+  </link>
+</robot>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <param name="robot_description" command="$(find xacro)/xacro $(find robot_ros_description)/urdf/robot_ros.xacro"/>
+
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+        <param name="use_gui" value="False"/>
+    </node>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    </node>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find robot_ros_description)/work_ws/work_ws.world"/>-->
+    </include>
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" args="-urdf -model robot_ros -param robot_description"/>
+
+</launch>

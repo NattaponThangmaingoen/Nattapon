@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot name="robot_ros" xmlns:xacro="http://www.ros.org/wiki/xacro">
+   
+    <joint name="ball_fn" type="fixed">
+        <parent link="base"/>
+        <child link="ball_fn"/>
+        <origin rpy="0 0 -1.57" xyz="0.04 0 -0.01"/>
+    </joint>    
+    <link name="ball_fn">
+        <inertial>
+            <mass value="0.1"/>
+            <origin xyz="0 0 -0.01" rpy=" 0 0 0"/>
+            <inertia
+                ixx="0" ixy="0" ixz="0"
+                iyy="0" iyz="0"
+                izz="0"
+            />
+        </inertial>
+
+        <collision name='collision'>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/Assem2.STL"/>
+            </geometry>
+        </collision>
+
+        <visual name='chassis_visual'>
+            <origin xyz="0 0 0" rpy=" 0 0 0"/>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/Assem2.STL"/>
+            </geometry>
+             <material name="red"/>
+        </visual>
+
+  </link>
+  <joint name="ball_dr" type="fixed">
+        <parent link="base"/>
+        <child link="ball_dr"/>
+        <origin rpy="0 0 -1.57" xyz="-0.04 0 -0.01"/>
+    </joint>    
+    <link name="ball_dr">
+        <inertial>
+            <mass value="0.1"/>
+            <origin xyz="0 0 -0.01" rpy=" 0 0 0"/>
+            <inertia
+                ixx="0" ixy="0" ixz="0"
+                iyy="0" iyz="0"
+                izz="0"
+            />
+        </inertial>
+
+        <collision name='collision'>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/Assem2.STL"/>
+            </geometry>
+        </collision>
+
+        <visual name='chassis_visual'>
+            <origin xyz="0 0 0" rpy=" 0 0 0"/>
+            <geometry>
+                <mesh filename="package://robot_ros_description/urdffile/Assem2.STL"/>
+            </geometry>
+             <material name="red"/>
+        </visual>
+
+  </link>
+</robot>
